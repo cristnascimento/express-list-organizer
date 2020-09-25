@@ -2,7 +2,8 @@ const service = require('../services/list.service');
 
 const findAll = (req,res) => {
     service.hello();
-    res.redirect("/list/todo/1");
+    let contacts = service.getContacts();
+    res.render('lists', {data: contacts});
 }
 
 module.exports = {
