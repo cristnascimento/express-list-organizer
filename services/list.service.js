@@ -1,3 +1,8 @@
+const sequelize = require('../models/sequelize');
+const ListsInit = require('../models/Lists');
+const listsDAO = require('../models/ListsDAO');
+const Lists = ListsInit(sequelize);
+
 let contacts = require("../todo.mock-data");
 
 let nextId = 5;
@@ -38,9 +43,21 @@ const addItem = (item) => {
     nextId++;
 }
 
-module.exports = {
+const add = (description) => {
+    console.log("ADD method");
+    let newItem = listsDAO.add(Lists, {description: description});
+}
+
+const findAll = () => {
+    console.log("findAll method");
+    return listsDAO.findAll(Lists);
+}
+
+module.exports = {      
     hello,
     getContacts,
     getItems,
-    addItem
+    addItem,
+    findAll,
+    add
 }

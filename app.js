@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const router = require("./contact.routing");
 const hbs = require("./contact.handlebars");
 const listRouter = require('./routers/list.router');
+const models = require('./models/models');
 
 app.use(express.static('public'));
 
@@ -16,6 +17,14 @@ app.set('view engine', 'handlebars');
 app.use('/lists', listRouter);
 app.use("/", router);
 
-app.listen(3000, function() {
-    console.log("Running on http://localhost:3000");
+models.createTables( (err) => {
+    if (err) {
+        console.log('Could not create tables and initialize the server. Error: ' + err);
+    }
+    else {
+        app.listen(3000, function() {
+            console.log("Running on http://localhost:3000");
+        });    
+    }
 });
+
