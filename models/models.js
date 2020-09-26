@@ -1,9 +1,11 @@
 const sequelize = require('./sequelize');
 const UserInit = require("./User");
 const ListsInit = require("./Lists");
+const ItemsInit = require("./Items");
 
 const User = UserInit(sequelize);
 const Lists = ListsInit(sequelize);
+const Items = ItemsInit(sequelize);
 
 console.log("initialize sequelize");
 

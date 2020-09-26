@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const router = require("./contact.routing");
 const hbs = require("./contact.handlebars");
 const listRouter = require('./routers/list.router');
+const itemRouter = require('./routers/item.router');
 const models = require('./models/models');
 
 app.use(express.static('public'));
@@ -15,6 +16,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use('/lists', listRouter);
+app.use('/items', itemRouter);
 app.use("/", router);
 
 models.createTables( (err) => {

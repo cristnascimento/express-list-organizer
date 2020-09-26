@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var controller = require('../controllers/list.controller');
+var controller = require('../controllers/item.controller');
 
 // Pages
 
 // API
-router.get("/:id", controller.findOne);
-router.get("/", controller.findAll);
+router.get("/", controller.findOne);
 router.post("/", controller.addItem);
 
 module.exports = router;
