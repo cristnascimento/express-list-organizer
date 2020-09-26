@@ -43,9 +43,9 @@ const addItem = (item) => {
     nextId++;
 }
 
-const add = (description) => {
+const add = (obj) => {
     console.log("ADD method");
-    let newItem = listsDAO.add(Lists, {description: description});
+    let newItem = listsDAO.add(Lists, {description: obj.description, category: obj.category});
 }
 
 const findAll = () => {
