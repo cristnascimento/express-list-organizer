@@ -6,5 +6,6 @@ var controller = require('../controllers/list.controller');
 
 // API
 router.get("/", controller.findAll);
+router.post("/", controller.addItem);
 
 module.exports = router;
