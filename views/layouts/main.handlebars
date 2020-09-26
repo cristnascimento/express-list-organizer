@@ -36,12 +36,9 @@
           <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Start Bootstrap </div>
             <div class="list-group list-group-flush">
-              <a href="/list/todo/1" class="list-group-item list-group-item-action bg-light">ToDo List</a>
-              <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-              <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-              <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-              <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-              <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+              {{#menu}}
+              <a href="/lists/{{id}}" class="list-group-item list-group-item-action bg-light">{{description}}</a>
+              {{/menu}}
             </div>
           </div>
 
