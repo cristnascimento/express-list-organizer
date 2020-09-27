@@ -34,12 +34,23 @@
 
           <!-- Sidebar -->
           <div class="bg-light border-right" id="sidebar-wrapper">
+            {{#if isList}}
             <div class="sidebar-heading"><a href="/lists" class="btn btn-success">Create New Project</a> </div>
             <div class="list-group list-group-flush">
               {{#menu}}
               <a href="/lists/{{id}}" class="list-group-item list-group-item-action bg-light">{{description}}</a>
               {{/menu}}
             </div>
+            {{/if}}
+
+            {{#if isCategory}}
+                <div class="sidebar-heading"><a href="/categories" class="btn btn-success">Create New Category</a> </div>
+                <div class="list-group list-group-flush">
+                {{#menu}}
+                <a href="/categories/{{id}}" class="list-group-item list-group-item-action bg-light">{{name}}</a>
+                {{/menu}}
+                </div>
+            {{/if}}
           </div>
 
         

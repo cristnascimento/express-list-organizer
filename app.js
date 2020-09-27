@@ -5,6 +5,8 @@ const hbs = require("./contact.handlebars");
 const listRouter = require('./routers/list.router');
 const itemRouter = require('./routers/item.router');
 const indexRouter = require('./routers/index.router');
+const categoryRouter = require('./routers/category.router');
+
 const models = require('./models/models');
 
 app.use(express.static('public'));
@@ -17,6 +19,7 @@ app.set('view engine', 'handlebars');
 
 app.use('/lists', listRouter);
 app.use('/items', itemRouter);
+app.use('/categories', categoryRouter);
 app.use("/", indexRouter);
 
 models.createTables( (err) => {
