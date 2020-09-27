@@ -13,7 +13,7 @@ const findAll = (req,res) => {
 
 const addItem = (req, res) => {
     itemService.add(req.body);
-    res.redirect('lists/'+req.body.listId);
+    res.redirect('/categories/'+req.params.categoryId+'/lists/'+req.body.listId);
 }
 
 const findOne = (req, res) => {

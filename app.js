@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use('/lists', listRouter);
-app.use('/items', itemRouter);
+app.use('/categories/:categoryId/lists/:listId/items', itemRouter);
+app.use('/categories/:categoryId/lists', listRouter);
 app.use('/categories', categoryRouter);
 app.use("/", indexRouter);
 

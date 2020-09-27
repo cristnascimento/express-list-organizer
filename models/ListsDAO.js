@@ -7,8 +7,8 @@ const add = async (Lists, item) => {
     return newItem
 }
 
-const findAll = async (Lists) => {
-    return await Lists.findAll({});
+const findAll = async (Lists, categoryId) => {
+    return await Lists.findAll({where:{categoryId: categoryId}});
 }
 
 const findSpecific = async (Lists, id) => {

@@ -1,7 +1,7 @@
 <div class="container col-md-8" >
         <br/>
         <h3>Projects</h3><br/>
-        <form method="POST" action="/lists">
+        <form method="POST" action="/categories/{{categoryId}}/lists">
           <div class="form-row">
               <input type="text" class="form-control col-md-6 ml-1" id="description" name="description"
                {{readonly}} placeholder="Type your new item">

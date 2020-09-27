@@ -42,9 +42,9 @@ const add = (obj) => {
     let newItem = listsDAO.add(Lists, {description: obj.description, categoryId: obj.categoryId});
 }
 
-const findAll = () => {
+const findAll = (categoryId) => {
     console.log("findAll method");
-    return listsDAO.findAll(Lists);
+    return listsDAO.findAll(Lists, categoryId);
 }
 
 const findOne = () => {
