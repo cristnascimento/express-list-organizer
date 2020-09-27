@@ -1,4 +1,5 @@
 const categoryService = require('../services/category.service');
+const listsService = require('../services/list.service');
 
 const findAll = (req,res) => {
     categoryService.findAll()
@@ -16,19 +17,12 @@ const addItem = (req, res) => {
 }
 
 const findOne = (req, res) => {
-    console.log("==============================> list id: " + req.params.id);
-    let items1; /*
-    categoryService.findAll({id: req.params.id})
-    .then(items => {
-        console.log(items);
-        // this will fix handlebars forbidden access to ORM templates
-        items1 = JSON.parse(JSON.stringify(items));
-        return itemService.findOne(req.params.id);
-    })
+    console.log("==============================> category id: " + req.params.id);
+    listsService.findSpecific(req.params.id)
     .then(items2 => {
         items2 = JSON.parse(JSON.stringify(items2));
-        res.render('items', {menu: items1, data: items2, listId: req.params.id});
-    });*/
+        res.render('lists', {menu: items2, data: items2, categoryId: req.params.id, isList: true});
+    });
 }
 
 module.exports = {

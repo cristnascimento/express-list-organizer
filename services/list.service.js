@@ -39,7 +39,7 @@ const addItem = (item) => {
 
 const add = (obj) => {
     console.log("ADD method");
-    let newItem = listsDAO.add(Lists, {description: obj.description, category: obj.category});
+    let newItem = listsDAO.add(Lists, {description: obj.description, categoryId: obj.categoryId});
 }
 
 const findAll = () => {
@@ -52,10 +52,16 @@ const findOne = () => {
     return itemsDAO.findAll(Items);
 }
 
+const findSpecific = (categoryId) => {
+    console.log("findSpecific method");
+    return listsDAO.findSpecific(Lists, categoryId);
+}
+
 module.exports = {
     getItems,
     addItem,
     findAll,
     add,
-    findOne
+    findOne,
+    findSpecific
 }

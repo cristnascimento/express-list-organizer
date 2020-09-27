@@ -1,13 +1,10 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
+const CategoryInit = require('./Category');
 
 class Lists extends Model {}
 
 const init = (sequelize) => {
     Lists.init({
-        category: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         description: {  
             type: DataTypes.STRING,
             allowNull: false
@@ -17,6 +14,10 @@ const init = (sequelize) => {
       sequelize, // We need to pass the connection instance
       modelName: 'Lists' // We need to choose the model name
     });
+
+    
+    let Category = CategoryInit(sequelize);
+    Lists.belongsTo(Category, {foreignKey: 'categoryId', targetKey: 'id'});
 
     return Lists;
 }

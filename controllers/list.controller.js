@@ -2,18 +2,19 @@ const service = require('../services/list.service');
 const itemService = require('../services/item.service');
 
 const findAll = (req,res) => {
-    service.findAll({category: 'project'})
+    service.findAll({category: req.params.id})
     .then(items => {
         console.log(items);
         // this will fix handlebars forbidden access to ORM templates
         items = JSON.parse(JSON.stringify(items));
-        res.render('lists', {menu: items, data: items, category: 'project'});
+        res.render('lists', {menu: items, data: items, category: req.params.id});
     });
 }
 
 const addItem = (req, res) => {
+    console.log('[lists] addItem'); 
     service.add(req.body);
-    res.redirect('lists');
+    res.redirect('categories/'+req.body.categoryId);
 }
 
 const findOne = (req, res) => {

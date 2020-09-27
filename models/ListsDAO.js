@@ -11,7 +11,12 @@ const findAll = async (Lists) => {
     return await Lists.findAll({});
 }
 
+const findSpecific = async (Lists, id) => {
+    return await Lists.findAll({where:{categoryId: id}});
+}
+
 module.exports = {
     add,
-    findAll
+    findAll,
+    findSpecific
 }

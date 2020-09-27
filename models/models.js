@@ -16,7 +16,7 @@ const createTables = async (callback) => {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
         //await sequelize.sync({ force: true });
-        await sequelize.sync();
+        await sequelize.sync({ force: true });
         console.log('Tables created!.');
         callback(null);
     }
