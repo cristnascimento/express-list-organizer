@@ -7,8 +7,6 @@ const itemsDAO = require('../models/ItemsDAO');
 const Lists = ListsInit(sequelize);
 const Items = ItemsInit(sequelize);
 
-let contacts = require("../todo.mock-data");
-
 let nextId = 5;
 
 let items = [
@@ -29,14 +27,6 @@ let items = [
         description: "Roman",
     },
 ];
-
-const getContacts = function() {
-    return contacts;
-}
-
-const hello = () => {
-
-}
 
 const getItems = () => {
     return items;
@@ -62,9 +52,7 @@ const findOne = () => {
     return itemsDAO.findAll(Items);
 }
 
-module.exports = {      
-    hello,
-    getContacts,
+module.exports = {
     getItems,
     addItem,
     findAll,
