@@ -7,5 +7,6 @@ var controller = require('../controllers/item.controller');
 // API
 router.get("/", controller.findOne);
 router.post("/", controller.addItem);
+router.post("/:itemId", controller.updateItem);
 
 module.exports = router;
