@@ -38,6 +38,7 @@ const updateItem = (req, res) => {
     console.log(req.body.description);
     itemService.updateItem(req.body)
     .then( updatedItem => {
+        console.log('return value :::');
         console.log(updatedItem);
         let response = JSON.stringify({status: "ok", msg: "Item atualizado com sucesso.", result: req.body});
         res.end(response);
