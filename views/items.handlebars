@@ -46,12 +46,12 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" id="btnClose_{{id}}" class="btn btn-secondary" data-dismiss="modal" onclick="closeView({{id}});">Close</button>
-                          <button type="button" id="btnSave_{{id}}" class="btn btn-primary" onclick="updateDescription({{id}})">Save changes</button>
+                          <button type="button" id="btnSave_{{id}}" class="btn btn-primary" onclick="updateItem({{id}})">Save changes</button>
                         </div>
                       </div>
                     </div>
                   </div>
-                    <a class="btn btn-danger" href="/contact/delete/{{id}}" role="button">Remove</a>
+                    <a class="btn btn-danger" href="#" role="button" onclick="deleteItem({{id}})">Remove</a>
                   </td>
                 </tr>
                 {{/data}}
@@ -69,12 +69,12 @@
                     $('#btnSave_'+id).show();
                   }
 
-                  function updateDescription(elementId) {
-                      let inputDescription = document.getElementById("item_"+elementId);
+                  function updateItem(itemId) {
+                      let inputDescription = document.getElementById("item_"+itemId);
                       let description = inputDescription.value;
                       
-                      axios.post('/categories/{{categoryId}}/lists/{{listId}}/items/'+elementId, {
-                        id: elementId,
+                      axios.post('/categories/{{categoryId}}/lists/{{listId}}/items/'+itemId, {
+                        id: itemId,
                         description: description
                       })
                       .then(function (response) {
@@ -85,6 +85,21 @@
                           alert("Erro no servidor.");
                         }
                       })
+                  }
+
+                  function deleteItem(itemId) {
+                    let url = '/categories/{{categoryId}}/lists/{{listId}}/items/'+itemId;
+                    let data = { id: itemId };
+
+                    axios.request({data, url, method: 'delete'})
+                    .then(function (response) {
+                        if (response.data.status === "ok") {  
+                          alert("Sucesso: " + response.data.msg);
+                        }
+                        else {
+                          alert("Erro no servidor.");
+                        }
+                    })
                   }
                 </script>
               </tbody>

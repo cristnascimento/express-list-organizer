@@ -42,12 +42,23 @@ const updateItem = (req, res) => {
         console.log(updatedItem);
         let response = JSON.stringify({status: "ok", msg: "Item atualizado com sucesso.", result: req.body});
         res.end(response);
-    }); 
+    });
+}
+
+const deleteItem = (req, res) => {
+    console.log("--------------- delete item ---------------");
+    console.log('id: ' + req.body.id);
+    itemService.deleteItem(req.body.id)
+    .then( updatedItem => {
+        let response = JSON.stringify({status: "ok", msg: "Item removido com sucesso.", result: req.body});
+        res.end(response);
+    });
 }
 
 module.exports = {
     findAll,
     addItem,
     findOne,
-    updateItem
+    updateItem,
+    deleteItem
 }

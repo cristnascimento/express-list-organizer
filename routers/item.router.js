@@ -8,5 +8,6 @@ var controller = require('../controllers/item.controller');
 router.get("/", controller.findOne);
 router.post("/", controller.addItem);
 router.post("/:itemId", controller.updateItem);
+router.delete("/:itemId", controller.deleteItem);
 
 module.exports = router;

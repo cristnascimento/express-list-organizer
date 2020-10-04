@@ -5,12 +5,10 @@ const itemsDAO = require('../models/ItemsDAO');
 
 const Items = ItemsInit(sequelize);
 
-
 const add = (obj) => {
     console.log("ADD method");
     let newItem = itemsDAO.add(Items, {description: obj.description, fk_listId: obj.listId});
 }
-
 
 const findOne = (listId) => {
     console.log("findAll method");
@@ -22,8 +20,13 @@ const updateItem = (item) => {
     return itemsDAO.updateItem(Items, item);
 }
 
+const deleteItem = (id) => {
+    return itemsDAO.deleteItem(Items, id);
+}
+
 module.exports = {      
     add,
     findOne,
-    updateItem
+    updateItem,
+    deleteItem
 }

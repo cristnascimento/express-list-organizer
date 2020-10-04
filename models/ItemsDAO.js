@@ -19,8 +19,17 @@ const updateItem = async (Items, item) => {
     );
 }
 
+const deleteItem = async (Items, id) => {
+    return await Items.destroy({
+        where: {
+          id: id
+        }
+      });
+}
+
 module.exports = {
     add,
     findAll,
-    updateItem
+    updateItem,
+    deleteItem
 }
