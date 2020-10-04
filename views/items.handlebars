@@ -68,10 +68,8 @@
                       .then(function (response) {
                         if (response.data.status === "ok") {
                           alert("Sucesso: " + response.data.msg);
-                          console.log(response.data.result);
                         }
                         else {
-                          console.log(response);
                           alert("Erro no servidor.");
                         }
                       })

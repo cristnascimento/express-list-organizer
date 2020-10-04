@@ -11,7 +11,16 @@ const findAll = async (Items, listId) => {
     return await Items.findAll({where: {fk_listId: listId}});
 }
 
+const updateItem = async (Items, item) => {
+    return await Items.update({description: item.description},
+        {
+            where: {id: item.id}
+        }
+    );
+}
+
 module.exports = {
     add,
-    findAll
+    findAll,
+    updateItem
 }

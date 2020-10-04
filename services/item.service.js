@@ -17,7 +17,13 @@ const findOne = (listId) => {
     return itemsDAO.findAll(Items, listId);
 }
 
+const updateItem = (item) => {
+    console.log("update item method");
+    return itemsDAO.updateItem(Items, item);
+}
+
 module.exports = {      
     add,
-    findOne
+    findOne,
+    updateItem
 }

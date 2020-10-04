@@ -36,8 +36,12 @@ const updateItem = (req, res) => {
     console.log("--------------- update item ---------------");
     console.log(req.body.id);
     console.log(req.body.description);
-    let response = JSON.stringify({status: "ok", msg: "Item atualizado com sucesso.", result: req.body});
-    res.end(response);
+    itemService.updateItem(req.body)
+    .then( updatedItem => {
+        console.log(updatedItem);
+        let response = JSON.stringify({status: "ok", msg: "Item atualizado com sucesso.", result: req.body});
+        res.end(response);
+    }); 
 }
 
 module.exports = {
