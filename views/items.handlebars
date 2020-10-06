@@ -55,55 +55,55 @@
                   </td>
                 </tr>
                 {{/data}}
-                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                <script>
-
-                  function openView(id) {
-                    $('#edit_'+id).modal('show');
-                    $('#item_'+id).attr('readonly', true);
-                    $('#btnSave_'+id).hide();
-                  }
-
-                  function closeView(id) {
-                    $('#item_'+id).attr('readonly', false);
-                    $('#btnSave_'+id).show();
-                  }
-
-                  function updateItem(itemId) {
-                      let inputDescription = document.getElementById("item_"+itemId);
-                      let description = inputDescription.value;
-                      
-                      axios.post('/categories/{{categoryId}}/lists/{{listId}}/items/'+itemId, {
-                        id: itemId,
-                        description: description
-                      })
-                      .then(function (response) {
-                        if (response.data.status === "ok") {
-                          alert("Sucesso: " + response.data.msg);
-                        }
-                        else {
-                          alert("Erro no servidor.");
-                        }
-                      })
-                  }
-
-                  function deleteItem(itemId) {
-                    let url = '/categories/{{categoryId}}/lists/{{listId}}/items/'+itemId;
-                    let data = { id: itemId };
-
-                    axios.request({data, url, method: 'delete'})
-                    .then(function (response) {
-                        if (response.data.status === "ok") {  
-                          alert("Sucesso: " + response.data.msg);
-                        }
-                        else {
-                          alert("Erro no servidor.");
-                        }
-                    })
-                  }
-                </script>
               </tbody>
             </table>
+</div>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
 
-  </div>
+  function openView(id) {
+    $('#edit_'+id).modal('show');
+    $('#item_'+id).attr('readonly', true);
+    $('#btnSave_'+id).hide();
+  }
+
+  function closeView(id) {
+    $('#item_'+id).attr('readonly', false);
+    $('#btnSave_'+id).show();
+  }
+
+  function updateItem(itemId) {
+      let inputDescription = document.getElementById("item_"+itemId);
+      let description = inputDescription.value;
+      
+      axios.post('/categories/{{categoryId}}/lists/{{listId}}/items/'+itemId, {
+        id: itemId,
+        description: description
+      })
+      .then(function (response) {
+        if (response.data.status === "ok") {
+          alert("Sucesso: " + response.data.msg);
+        }
+        else {
+          alert("Erro no servidor.");
+        }
+      })
+  }
+
+  function deleteItem(itemId) {
+    let url = '/categories/{{categoryId}}/lists/{{listId}}/items/'+itemId;
+    let data = { id: itemId };
+
+    axios.request({data, url, method: 'delete'})
+    .then(function (response) {
+        if (response.data.status === "ok") {  
+          alert("Sucesso: " + response.data.msg);
+        }
+        else {
+          alert("Erro no servidor.");
+        }
+    })
+  }
+</script>
+  
