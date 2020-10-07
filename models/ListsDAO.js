@@ -15,6 +15,14 @@ const findSpecific = async (Lists, id) => {
     return await Lists.findAll({where:{categoryId: id}});
 }
 
+const update = async (Lists, list) => {
+    return await Lists.update({description: list.description},
+        {
+            where: {id: list.id}
+        }
+    );
+}
+
 module.exports = {
     add,
     findAll,

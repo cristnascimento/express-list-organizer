@@ -57,6 +57,11 @@ const findSpecific = (categoryId) => {
     return listsDAO.findSpecific(Lists, categoryId);
 }
 
+const update = (list) => {
+    console.log("update item method");
+    return listsDAO.update(Lists, list);
+}
+
 module.exports = {
     getItems,
     addItem,

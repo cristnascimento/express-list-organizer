@@ -36,8 +36,19 @@ const findOne = (req, res) => {
     });
 }
 
+const updateList = (req, res) => {
+    service.update(req.body)
+    .then( updatedItem => {
+        console.log('return value :::');
+        console.log(updatedItem);
+        let response = JSON.stringify({status: "ok", msg: "Item atualizado com sucesso.", result: req.body});
+        res.end(response);
+    });
+}
+
 module.exports = {
     findAll,
     addItem,
-    findOne
+    findOne,
+    updateList
 }
