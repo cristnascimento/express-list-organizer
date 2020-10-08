@@ -57,9 +57,13 @@ const findSpecific = (categoryId) => {
     return listsDAO.findSpecific(Lists, categoryId);
 }
 
-const update = (list) => {
-    console.log("update item method");
+const updateList = (list) => {
+    console.log("update list method");
     return listsDAO.update(Lists, list);
+}
+
+const deleteList = (id) => {
+    return listsDAO.deleteList(Lists, id);
 }
 
 module.exports = {
@@ -68,5 +72,7 @@ module.exports = {
     findAll,
     add,
     findOne,
-    findSpecific
+    findSpecific,
+    deleteList,
+    updateList
 }

@@ -73,12 +73,12 @@
     $('#btnSave_'+id).show();
   }
 
-  function updateItem(itemId) {
-      let inputDescription = document.getElementById("item_"+itemId);
+  function updateItem(listId) {
+      let inputDescription = document.getElementById("item_"+listId);
       let description = inputDescription.value;
       
-      axios.post('/categories/{{categoryId}}/lists/{{listId}}/items/'+itemId, {
-        id: itemId,
+      axios.post('/categories/{{categoryId}}/lists/'+listId, {
+        id: listId,
         description: description
       })
       .then(function (response) {
@@ -91,9 +91,9 @@
       })
   }
 
-  function deleteItem(itemId) {
-    let url = '/categories/{{categoryId}}/lists/{{listId}}/items/'+itemId;
-    let data = { id: itemId };
+  function deleteItem(listId) {
+    let url = '/categories/{{categoryId}}/lists/'+listId;
+    let data = { id: listId };
 
     axios.request({data, url, method: 'delete'})
     .then(function (response) {

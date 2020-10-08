@@ -37,7 +37,7 @@ const findOne = (req, res) => {
 }
 
 const updateList = (req, res) => {
-    service.update(req.body)
+    service.updateList(req.body)
     .then( updatedItem => {
         console.log('return value :::');
         console.log(updatedItem);
@@ -46,9 +46,19 @@ const updateList = (req, res) => {
     });
 }
 
+const deleteList = (req, res) => {
+    service.deleteList(req.body.id)
+    .then( updatedItem => {
+        let response = JSON.stringify({status: "ok", msg: "Item removido com sucesso.", result: req.body});
+        res.end(response);
+    });
+
+}
+
 module.exports = {
     findAll,
     addItem,
     findOne,
-    updateList
+    updateList,
+    deleteList
 }

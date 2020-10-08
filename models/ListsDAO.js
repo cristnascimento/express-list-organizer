@@ -23,8 +23,18 @@ const update = async (Lists, list) => {
     );
 }
 
+const deleteList = async (Lists, id) => {
+    return await Lists.destroy({
+        where: {
+          id: id
+        }
+      });
+}
+
 module.exports = {
     add,
     findAll,
-    findSpecific
+    findSpecific,
+    update,
+    deleteList
 }
