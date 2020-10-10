@@ -20,8 +20,14 @@ const findOne = (categoryId) => {
     return categoryDAO.findOne(Items, categoryId);
 }
 
+const updateCategory = (category) => {
+    console.log("update category method");
+    return categoryDAO.update(Category, category);
+}
+
 module.exports = {
     add,
     findAll,
-    findOne
+    findOne,
+    updateCategory
 }

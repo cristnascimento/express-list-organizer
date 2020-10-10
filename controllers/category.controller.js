@@ -25,8 +25,17 @@ const findOne = (req, res) => {
     });
 }
 
+const updateCategory = (req, res) => {
+    categoryService.updateCategory(req.body)
+    .then( updatedItem => {
+        let response = JSON.stringify({status: "ok", msg: "Categoria atualizada com sucesso.", result: req.body});
+        res.end(response);
+    });
+}
+
 module.exports = {
     findAll,
     addItem,
-    findOne
+    findOne,
+    updateCategory
 }

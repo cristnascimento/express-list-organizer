@@ -15,8 +15,17 @@ const findOne = async (Category, categoryId) => {
     return await Category.findAll({where: {id: categoryId}});
 }
 
+const update = async (Category, category) => {
+    return await Category.update({name: category.name},
+        {
+            where: {id: category.id}
+        }
+    );
+}
+
 module.exports = {
     add,
     findAll,
-    findOne
+    findOne,
+    update
 }

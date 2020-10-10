@@ -76,9 +76,9 @@
       let inputDescription = document.getElementById("item_"+listId);
       let description = inputDescription.value;
       
-      axios.post('/categories/{{categoryId}}/lists/'+listId, {
+      axios.post('/categories/'+listId, {
         id: listId,
-        description: description
+        name: description
       })
       .then(function (response) {
         if (response.data.status === "ok") {

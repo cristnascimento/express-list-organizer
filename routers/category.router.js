@@ -6,6 +6,7 @@ var controller = require('../controllers/category.controller');
 
 // API
 router.get("/:id", controller.findOne);
+router.post("/:id", controller.updateCategory);
 router.get("/", controller.findAll);
 router.post("/", controller.addItem);
 
