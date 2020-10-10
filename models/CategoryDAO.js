@@ -23,9 +23,18 @@ const update = async (Category, category) => {
     );
 }
 
+const deleteCategory = async (Category, id) => {
+    return await Category.destroy({
+        where: {
+          id: id
+        }
+      });
+}
+
 module.exports = {
     add,
     findAll,
     findOne,
-    update
+    update,
+    deleteCategory
 }

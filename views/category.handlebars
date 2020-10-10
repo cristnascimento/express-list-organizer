@@ -91,7 +91,7 @@
   }
 
   function deleteItem(listId) {
-    let url = '/categories/{{categoryId}}/lists/'+listId;
+    let url = '/categories/';
     let data = { id: listId };
 
     axios.request({data, url, method: 'delete'})

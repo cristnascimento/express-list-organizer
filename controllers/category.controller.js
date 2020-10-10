@@ -33,9 +33,18 @@ const updateCategory = (req, res) => {
     });
 }
 
+const deleteCategory = (req, res) => {
+    categoryService.deleteCategory(req.body.id)
+    .then( updatedItem => {
+        let response = JSON.stringify({status: "ok", msg: "Categoria removida com sucesso.", result: req.body});
+        res.end(response);
+    });
+
+}
 module.exports = {
     findAll,
     addItem,
     findOne,
-    updateCategory
+    updateCategory,
+    deleteCategory
 }

@@ -25,9 +25,14 @@ const updateCategory = (category) => {
     return categoryDAO.update(Category, category);
 }
 
+const deleteCategory = (id) => {
+    return categoryDAO.deleteCategory(Category, id);
+}
+
 module.exports = {
     add,
     findAll,
     findOne,
-    updateCategory
+    updateCategory,
+    deleteCategory
 }

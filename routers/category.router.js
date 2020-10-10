@@ -9,5 +9,6 @@ router.get("/:id", controller.findOne);
 router.post("/:id", controller.updateCategory);
 router.get("/", controller.findAll);
 router.post("/", controller.addItem);
+router.delete("/", controller.deleteCategory);
 
 module.exports = router;
