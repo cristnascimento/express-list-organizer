@@ -23,7 +23,7 @@
                 {{#data}}
                 <tr class="row">
                   <th class="col-sm-1">{{id}}</th>
-                  <td class="col-sm-7">{{description}}</td>
+                  <td class="col-sm-7" id="col_description_{{id}}">{{description}}</td>
                   <td class="col-sm-4">
                     <a class="btn btn-success" href="#" role="button" onclick="openView({{id}})">View</a>
                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit_{{id}}">Edit</button>
@@ -84,6 +84,8 @@
       .then(function (response) {
         if (response.data.status === "ok") {
           alert("Sucesso: " + response.data.msg);
+          let colDescription = document.getElementById("col_description_"+itemId);
+          colDescription.innerText = description;
         }
         else {
           alert("Erro no servidor.");
